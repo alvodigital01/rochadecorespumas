@@ -58,7 +58,9 @@
 
 **Interfaces:**
 - Consumes: nothing (first task)
-- Produces: the empty section shells (`#header`, `#hero`, `#diferenciais`, `#catalogo`, `#como-funciona`, `#quem-somos`, `#depoimentos`, `#onde-estamos`, `#footer`, `#whatsapp-float`) that every later task fills in; CSS custom properties (`--bg`, `--bg-elevated`, `--bg-elevated-2`, `--gold`, `--gold-light`, `--gold-dark`, `--text`, `--text-muted`, `--border`, `--radius`, `--container-width`, `--transition`); shared classes `.container`, `.section`, `.section-header`, `.section-eyebrow`, `.section-title`, `.section-subtitle`, `.btn`, `.btn--primary`, `.btn--secondary`, `.btn--small`.
+- Produces: the empty section shells (`#header`, `#hero`, `#diferenciais`, `#catalogo`, `#como-funciona`, `#quem-somos`, `#depoimentos`, `#onde-estamos`, `#footer`, `#whatsapp-float`) that every later task fills in; CSS custom properties (`--bg`, `--bg-elevated`, `--bg-elevated-2`, `--gold`, `--gold-light`, `--gold-dark`, `--text`, `--text-muted`, `--border`, `--radius`, `--container-width`, `--transition`, `--font-display`, `--font-body`); shared classes `.container`, `.section`, `.section-header`, `.section-eyebrow`, `.section-title`, `.section-subtitle`, `.btn`, `.btn--primary`, `.btn--secondary`, `.btn--small`.
+
+**Design note:** Typography is a deliberate pairing, not a single system-font stack everywhere: `--font-display` (Georgia-led serif, warm/sturdy — evokes decades of trade craft) for headlines and logos, `--font-body` (system sans) for everything else. Both are zero-network-request (no webfont files, no CDN) — the pairing comes from *which* system faces are chosen and *where* each is applied, not from downloading anything.
 
 - [ ] **Step 1: Create the folder structure**
 
@@ -150,7 +152,7 @@ html {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -174,6 +176,8 @@ button { font: inherit; cursor: pointer; }
   --radius: 14px;
   --container-width: 1180px;
   --transition: 280ms ease;
+  --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', ui-serif, serif;
+  --font-body: -apple-system, 'Segoe UI', system-ui, 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* ==== LAYOUT HELPERS ==== */
@@ -206,8 +210,9 @@ button { font: inherit; cursor: pointer; }
 }
 
 .section-title {
+  font-family: var(--font-display);
   font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.01em;
 }
 
@@ -577,10 +582,11 @@ With:
 }
 
 .header__logo {
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.15rem;
   color: var(--text);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   white-space: nowrap;
 }
 
@@ -846,11 +852,15 @@ With:
 ```html
     <section class="hero" id="hero" data-reveal>
       <div class="container hero__inner">
-        <p class="hero__eyebrow">Distribuidora oficial Pró-Relax em Londrina</p>
-        <h1 class="hero__title">Espuma direto da distribuidora,<br>no preço que o seu negócio precisa.</h1>
+        <div class="hero__badge">
+          <span class="hero__badge-number" data-counter data-counter-target="30" data-counter-suffix="+">0</span>
+          <span class="hero__badge-label">anos de experiência em Londrina</span>
+        </div>
+
+        <h1 class="hero__title">Uma densidade certa<br>para cada projeto.</h1>
         <p class="hero__subtitle">
-          Mais de 30 anos de experiência no mercado. Preços especiais para
-          tapeceiros, estofadores e revendedores, com cortes sob medida.
+          Distribuidora oficial Pró-Relax. Preços especiais para tapeceiros,
+          estofadores e revendedores, com cortes sob medida.
         </p>
 
         <div class="hero__actions">
@@ -865,23 +875,40 @@ With:
           <a class="btn btn--secondary" href="#catalogo">Ver catálogo de densidades</a>
         </div>
 
-        <div class="hero__stats">
-          <div class="hero__stat">
-            <span class="hero__stat-number" data-counter data-counter-target="30" data-counter-suffix="+">0</span>
-            <span class="hero__stat-label">anos de experiência</span>
+        <a href="#catalogo" class="hero__spectrum">
+          <div class="hero__spectrum-bar">
+            <span class="hero__spectrum-tick hero__spectrum-tick--start" style="left:0%">
+              <span class="hero__spectrum-tick-mark"></span>
+              <span class="hero__spectrum-tick-label"><b>D18</b><i>macia</i></span>
+            </span>
+            <span class="hero__spectrum-tick" style="left:20%">
+              <span class="hero__spectrum-tick-mark"></span>
+              <span class="hero__spectrum-tick-label"><b>D26</b></span>
+            </span>
+            <span class="hero__spectrum-tick" style="left:40%">
+              <span class="hero__spectrum-tick-mark"></span>
+              <span class="hero__spectrum-tick-label"><b>D28</b></span>
+            </span>
+            <span class="hero__spectrum-tick" style="left:60%">
+              <span class="hero__spectrum-tick-mark"></span>
+              <span class="hero__spectrum-tick-label"><b>D33</b></span>
+            </span>
+            <span class="hero__spectrum-tick" style="left:80%">
+              <span class="hero__spectrum-tick-mark"></span>
+              <span class="hero__spectrum-tick-label"><b>D45</b></span>
+            </span>
+            <span class="hero__spectrum-tick hero__spectrum-tick--end" style="left:100%">
+              <span class="hero__spectrum-tick-mark"></span>
+              <span class="hero__spectrum-tick-label"><b>D60</b><i>firme</i></span>
+            </span>
           </div>
-          <div class="hero__stat">
-            <span class="hero__stat-number" data-counter data-counter-target="6" data-counter-suffix="+">0</span>
-            <span class="hero__stat-label">densidades disponíveis</span>
-          </div>
-          <div class="hero__stat">
-            <span class="hero__stat-number" data-counter data-counter-target="100" data-counter-suffix="%">0</span>
-            <span class="hero__stat-label">cortes sob medida</span>
-          </div>
-        </div>
+          <p class="hero__spectrum-caption">Do mais macio ao mais firme — encontre sua densidade no catálogo abaixo ↓</p>
+        </a>
       </div>
     </section>
 ```
+
+**Why this shape:** a row of three generic stat tiles (years / count / percent) is the default hero almost any AI-generated landing page reaches for. This hero keeps exactly one animated number (the trust badge — "+30 anos"), and replaces the other two stats with something that actually encodes real product information: a density spectrum from soft (D18) to firm (D60), the same vocabulary a tapeceiro already thinks in. It doubles as a visual teaser for the catálogo section and is a link straight to it.
 
 - [ ] **Step 7: Append hero styles to `css/styles.css`**
 
@@ -904,18 +931,33 @@ With:
   margin-inline: auto;
 }
 
-.hero__eyebrow {
-  color: var(--gold);
+.hero__badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+  background: var(--bg-elevated);
+}
+
+.hero__badge-number {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
+  color: var(--gold-light);
+}
+
+.hero__badge-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 .hero__title {
+  font-family: var(--font-display);
   font-size: clamp(2.1rem, 6vw, 3.6rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.01em;
 }
@@ -936,30 +978,85 @@ With:
   flex-wrap: wrap;
 }
 
-.hero__stats {
+.hero__spectrum {
+  display: block;
   margin-top: 3.5rem;
-  display: flex;
-  justify-content: center;
-  gap: clamp(1.5rem, 6vw, 4rem);
-  flex-wrap: wrap;
+  max-width: 640px;
+  margin-inline: auto;
 }
 
-.hero__stat {
+.hero__spectrum-bar {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(242, 207, 130, 0.3), var(--gold) 45%, var(--gold-dark) 100%);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1200ms ease 300ms;
+}
+
+.hero.is-visible .hero__spectrum-bar {
+  clip-path: inset(0 0% 0 0);
+}
+
+.hero__spectrum-tick {
+  position: absolute;
+  top: 100%;
+}
+
+.hero__spectrum-tick-mark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 0.6rem;
+  background: var(--border);
+}
+
+.hero__spectrum-tick-label {
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  white-space: nowrap;
 }
 
-.hero__stat-number {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 800;
+.hero__spectrum-tick--start .hero__spectrum-tick-label {
+  transform: translateX(0);
+  align-items: flex-start;
+}
+
+.hero__spectrum-tick--end .hero__spectrum-tick-label {
+  transform: translateX(-100%);
+  align-items: flex-end;
+}
+
+.hero__spectrum-tick b {
   color: var(--gold-light);
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
-.hero__stat-label {
+.hero__spectrum-tick i {
+  font-style: normal;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+}
+
+.hero__spectrum-caption {
+  margin-top: 2.5rem;
   color: var(--text-muted);
   font-size: 0.85rem;
-  margin-top: 0.25rem;
+}
+
+@media (hover: hover) {
+  .hero__spectrum:hover .hero__spectrum-caption {
+    color: var(--gold-light);
+  }
 }
 ```
 
@@ -983,16 +1080,19 @@ Reload `http://localhost:8000/`.
 
 Expected:
 - Hero content fades in shortly after load (it's above the fold, so the reveal fires almost immediately).
-- The three stat numbers count up from 0 to 30+, 6+, and 100% respectively, over about 1.2 seconds.
+- The "+30" badge number counts up from 0 to 30 over about 1.2 seconds.
+- The density spectrum bar fills in from left to right shortly after the hero reveals (the gold gradient bar animates its `clip-path` from fully clipped to fully visible).
+- All 6 density tick labels (D18…D60) are readable, evenly spaced, and aligned under their tick mark — the "D18/macia" and "D60/firme" end labels must sit fully inside the bar's width, not clipped or overflowing past the container edge, even at 360px.
+- Headline and section titles render in the serif display font (Georgia or its fallback), visibly different from the sans-serif body text.
 - "Falar no WhatsApp" button `href` starts with `https://wa.me/5543984888884?text=` (inspect, don't click through).
-- "Ver catálogo de densidades" scrolls smoothly down to the (still empty) catálogo section.
+- Both "Ver catálogo de densidades" and clicking the spectrum itself scroll smoothly down to the (still empty) catálogo section.
 - No horizontal scrollbar at 360px width. No console errors.
 
 - [ ] **Step 10: Commit**
 
 ```bash
 git add index.html css/styles.css js/utils.js js/counter.js js/main.js tests/utils.test.js
-git commit -m "feat: add hero section with animated stat counters"
+git commit -m "feat: add hero section with density spectrum signature element"
 ```
 
 ---
@@ -1319,8 +1419,10 @@ With:
 }
 
 .catalog-card__title {
+  font-family: var(--font-display);
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: var(--gold-light);
 }
 
@@ -1333,6 +1435,7 @@ With:
 .catalog-card__preco {
   font-size: 1.1rem;
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 .catalog-card__cta {
@@ -2132,7 +2235,8 @@ With:
 }
 
 .footer__logo {
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.05rem;
 }
 
