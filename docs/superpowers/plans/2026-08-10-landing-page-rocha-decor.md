@@ -22,7 +22,7 @@
 - Breakpoints: `480px`, `768px`, `1024px` (mobile-first, `min-width` media queries).
 - Anchor navigation must scroll smoothly (`scroll-behavior: smooth`), disabled under `prefers-reduced-motion: reduce`.
 - Local dev/test server for manual verification: `python -m http.server 8000` (confirmed available on this machine), then open `http://localhost:8000/`. **Never verify by double-clicking `index.html`** — `<script type="module">` is blocked by CORS on the `file://` protocol.
-- Node.js (confirmed v24.15.0) is used for `node --test tests/` only.
+- Node.js (confirmed v24.15.0) is used for `node --test tests/*.test.js` only. Use the glob, not a bare directory (`node --test tests/` reproducibly fails with `MODULE_NOT_FOUND` on this Node build on Windows — verified empirically; the glob form works whether or not the shell expands it).
 - This is a Windows dev environment with no Safari/iOS available. Every manual-verification step in this plan uses Chrome/DevTools emulation; real Safari/iOS spot-checking is called out explicitly as a follow-up for the user, not something executed during these tasks.
 
 ## File Structure
@@ -408,7 +408,7 @@ git commit -m "feat: add generic IntersectionObserver scroll-reveal utility"
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/"
+    "test": "node --test tests/*.test.js"
   }
 }
 ```
@@ -456,7 +456,7 @@ test('formatPriceRange groups thousands with a dot', () => {
 
 - [ ] **Step 3: Run the tests and verify they fail**
 
-Run: `node --test tests/`
+Run: `node --test tests/*.test.js`
 Expected: FAIL — `Cannot find module '../js/utils.js'` (the file doesn't exist yet).
 
 - [ ] **Step 4: Implement `js/utils.js`**
@@ -484,7 +484,7 @@ export function formatPriceRange(min, max, unit) {
 
 - [ ] **Step 5: Run the tests again and verify they pass**
 
-Run: `node --test tests/`
+Run: `node --test tests/*.test.js`
 Expected: PASS — `# pass 6`, `# fail 0`.
 
 - [ ] **Step 6: Commit**
@@ -774,7 +774,7 @@ test('easeOutQuad is strictly between 0 and 1 at the midpoint', () => {
 
 - [ ] **Step 2: Run the tests and verify the new ones fail**
 
-Run: `node --test tests/`
+Run: `node --test tests/*.test.js`
 Expected: FAIL on the 3 new tests — `easeOutQuad is not a function` (it isn't exported yet). The 6 tests from Task 3 still pass.
 
 - [ ] **Step 3: Append `easeOutQuad` to `js/utils.js`**
@@ -791,7 +791,7 @@ export function easeOutQuad(progress) {
 
 - [ ] **Step 4: Run the tests again and verify all pass**
 
-Run: `node --test tests/`
+Run: `node --test tests/*.test.js`
 Expected: PASS — `# pass 9`, `# fail 0`.
 
 - [ ] **Step 5: Create `js/counter.js`**
@@ -1298,16 +1298,26 @@ function createCatalogCard(item) {
   card.className = 'catalog-card';
   card.setAttribute('data-reveal', '');
 
-  const link = buildWhatsAppLink(WHATSAPP_NUMBER, item.mensagemWhatsApp);
+  const title = document.createElement('h3');
+  title.className = 'catalog-card__title';
+  title.textContent = item.densidade;
 
-  card.innerHTML = `
-    <h3 class="catalog-card__title">${item.densidade}</h3>
-    <p class="catalog-card__uso">${item.uso}</p>
-    <p class="catalog-card__preco">${formatPriceRange(item.precoMin, item.precoMax, item.unidade)}</p>
-    <a class="btn btn--secondary btn--small catalog-card__cta" href="${link}" target="_blank" rel="noopener">
-      Consultar no WhatsApp
-    </a>
-  `;
+  const uso = document.createElement('p');
+  uso.className = 'catalog-card__uso';
+  uso.textContent = item.uso;
+
+  const preco = document.createElement('p');
+  preco.className = 'catalog-card__preco';
+  preco.textContent = formatPriceRange(item.precoMin, item.precoMax, item.unidade);
+
+  const cta = document.createElement('a');
+  cta.className = 'btn btn--secondary btn--small catalog-card__cta';
+  cta.href = buildWhatsAppLink(WHATSAPP_NUMBER, item.mensagemWhatsApp);
+  cta.target = '_blank';
+  cta.rel = 'noopener';
+  cta.textContent = 'Consultar no WhatsApp';
+
+  card.append(title, uso, preco, cta);
 
   return card;
 }
@@ -2405,7 +2415,7 @@ duplo clique — os módulos JS são bloqueados pelo navegador no protocolo
 ## Rodar os testes
 
 ```bash
-node --test tests/
+node --test tests/*.test.js
 ```
 
 Testa as funções puras em `js/utils.js` (link do WhatsApp, formatação de
