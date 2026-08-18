@@ -20,8 +20,8 @@
             class="header__logo-image"
             src="assets/img/logoheader.png"
             alt="Rocha Decor Espumas"
-            width="1460"
-            height="468"
+            width="1348"
+            height="327"
           >
         </a>
 
@@ -91,24 +91,24 @@
 
         <div class="hero__actions">
           <a
-            class="btn hero__button hero__button--catalogo"
+            class="btn action-button action-button--solid action-button--arrow-down hero__button"
             data-button-effect
             href="#catalogo"
           >
             <span>Ver catálogo</span>
-            <svg class="hero__button-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <svg class="action-button__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M12 5v14m0 0 6-6m-6 6-6-6" />
             </svg>
           </a>
           <a
-            class="btn hero__button hero__button--whatsapp"
+            class="btn action-button action-button--outline action-button--arrow-up hero__button"
             data-button-effect
             href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
             target="_blank"
             rel="noopener"
           >
             <span>Falar no WhatsApp</span>
-            <svg class="hero__button-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <svg class="action-button__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M7 17 17 7M8 7h9v9" />
             </svg>
           </a>
@@ -186,24 +186,34 @@
             Jardim Leonor, Londrina - PR
           </p>
           <p class="onde-estamos__horario">
-            Segunda a sábado — horário a confirmar
+            Segunda a sábado — das 8:00 às 18:00
           </p>
           <div class="onde-estamos__actions">
             <a
-              class="btn btn--primary"
+              class="btn action-button action-button--solid action-button--arrow-up onde-estamos__button"
+              data-button-effect
               href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
               target="_blank"
               rel="noopener"
+              aria-label="Falar com a Rocha Decor Espumas no WhatsApp — abre em nova aba"
             >
-              Falar no WhatsApp
+              <span>Falar no WhatsApp</span>
+              <svg class="action-button__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M7 17 17 7M8 7h9v9" />
+              </svg>
             </a>
             <a
-              class="btn btn--secondary"
+              class="btn action-button action-button--outline action-button--arrow-up onde-estamos__button"
+              data-button-effect
               href="https://www.google.com/maps/search/?api=1&query=Rua+Ruy+Virmond+Carnascialli+791+Londrina+PR"
               target="_blank"
               rel="noopener"
+              aria-label="Ver como chegar à Rocha Decor Espumas — abre em nova aba"
             >
-              Como chegar
+              <span>Como chegar</span>
+              <svg class="action-button__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M7 17 17 7M8 7h9v9" />
+              </svg>
             </a>
           </div>
         </div>
@@ -226,17 +236,51 @@
   <footer class="footer" id="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <p class="footer__logo">Rocha <span>Decor Espumas</span></p>
-        <p class="footer__endereco">
-          Rua Ruy Virmond Carnascialli, 791 — Jardim Leonor, Londrina - PR
+        <a class="footer__logo" href="#hero" aria-label="Rocha Decor Espumas — voltar ao início">
+          <img
+            class="footer__logo-image"
+            src="assets/img/logoheader.png"
+            alt="Rocha Decor Espumas"
+            width="1348"
+            height="327"
+          >
+        </a>
+        <p class="footer__location">
+          <span class="footer__separator footer__location-separator" aria-hidden="true">·</span>
+          <span>Londrina - PR</span>
         </p>
       </div>
 
-      <div class="footer__links">
+      <nav class="footer__social" aria-label="Redes sociais">
+        <a
+          href="https://wa.me/5543984888884"
+          target="_blank"
+          rel="noopener"
+          aria-label="Falar com a Rocha Decor Espumas no WhatsApp — abre em nova aba"
+        >
+          <svg class="footer__social-icon footer__social-icon--whatsapp" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.93 7.93 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.9 7.9 0 0 0-2.327-5.607m-5.607 12.2a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.25a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.588-6.592 6.588m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.066-.315-.099-.445.099-.133.197-.513.646-.627.775-.116.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.1-1.372-.116-.198-.013-.305.085-.404.09-.088.197-.23.296-.345.1-.116.133-.198.198-.33.066-.133.033-.25-.017-.35-.05-.098-.445-1.074-.611-1.47-.16-.389-.323-.335-.445-.34-.114-.006-.247-.006-.378-.006a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.132 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.151.906.129 1.249.078.38-.058 1.171-.48 1.338-.943.164-.462.164-.857.116-.943-.05-.082-.182-.132-.38-.23" />
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <span class="footer__separator" aria-hidden="true">·</span>
+
         <!-- Handle assumido a partir do nome do repositório/bio truncada — confirmar antes de publicar. -->
-        <a href="https://instagram.com/rochadecorespumas" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://wa.me/5543984888884" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
+        <a
+          href="https://instagram.com/rochadecorespumas"
+          target="_blank"
+          rel="noopener"
+          aria-label="Ver a Rocha Decor Espumas no Instagram — abre em nova aba"
+        >
+          <svg class="footer__social-icon footer__social-icon--instagram" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" class="footer__instagram-dot" />
+          </svg>
+          <span>Instagram</span>
+        </a>
+      </nav>
 
       <p class="footer__copy">
         © <span id="footer-year"></span> Rocha Decor Espumas. Todos os direitos reservados.

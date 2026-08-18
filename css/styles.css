@@ -419,7 +419,7 @@ button { font: inherit; cursor: pointer; }
   transform: translateX(-50%);
 }
 
-.hero__button {
+.action-button {
   min-height: clamp(44px, 3.3vw, 54px);
   padding: clamp(0.7rem, 1vw, 0.9rem) clamp(0.75rem, 1.5vw, 1.4rem);
   border-radius: 10px;
@@ -430,35 +430,35 @@ button { font: inherit; cursor: pointer; }
   letter-spacing: -0.01em;
 }
 
-.hero__button:hover {
+.action-button:hover {
   transform: translateY(-2px);
 }
 
-.hero__button--catalogo {
+.action-button--solid {
   background: var(--gold);
   border-color: var(--gold);
   color: #0b0b0d;
   box-shadow: 0 8px 24px -10px rgba(254, 206, 5, 0.7);
 }
 
-.hero__button--catalogo:hover {
+.action-button--solid:is(:hover, :focus-visible) {
   box-shadow: 0 12px 28px -10px rgba(254, 206, 5, 0.9);
 }
 
-.hero__button--whatsapp {
+.action-button--outline {
   background: transparent;
   border-color: #fff;
   color: #fff;
 }
 
-.hero__button--whatsapp:hover {
+.action-button--outline:is(:hover, :focus-visible) {
   background: var(--gold);
   border-color: var(--gold);
   color: #0b0b0d;
   box-shadow: 0 12px 28px -10px rgba(254, 206, 5, 0.9);
 }
 
-.hero__button-icon {
+.action-button__icon {
   width: 1.1em;
   height: 1.1em;
   flex: 0 0 auto;
@@ -590,16 +590,16 @@ button { font: inherit; cursor: pointer; }
   animation: button-ripple 560ms ease-out;
 }
 
-.hero__button-icon,
+.action-button__icon,
 .header__cta-icon {
   transform-origin: center;
 }
 
-.hero__button--catalogo:is(:hover, :focus-visible) .hero__button-icon {
+.action-button--arrow-down:is(:hover, :focus-visible) .action-button__icon {
   animation: button-arrow-down 460ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.hero__button--whatsapp:is(:hover, :focus-visible) .hero__button-icon,
+.action-button--arrow-up:is(:hover, :focus-visible) .action-button__icon,
 .header__cta:is(:hover, :focus-visible) .header__cta-icon,
 .header__mobile-button:is(:hover, :focus-visible) .header__cta-icon {
   animation: button-arrow-up 460ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -639,7 +639,7 @@ button { font: inherit; cursor: pointer; }
     display: none;
   }
 
-  .button-fx .hero__button-icon,
+  .button-fx .action-button__icon,
   .button-fx .header__cta-icon {
     animation: none !important;
   }
@@ -944,6 +944,21 @@ button { font: inherit; cursor: pointer; }
   flex-wrap: wrap;
 }
 
+@media (max-width: 480px) {
+  .onde-estamos__actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .onde-estamos__button {
+    width: 100%;
+    min-width: 0;
+    min-height: 50px;
+    padding-inline: 1rem;
+  }
+}
+
 .onde-estamos__mapa iframe {
   width: 100%;
   border-radius: var(--radius);
@@ -953,53 +968,146 @@ button { font: inherit; cursor: pointer; }
 
 /* ==== FOOTER ==== */
 .footer {
-  border-top: 1px solid var(--border);
-  padding-block: 2.5rem;
-  background: var(--bg-elevated);
+  border-top: 1px solid rgba(254, 206, 5, 0.22);
+  padding-block: 2rem calc(5.25rem + env(safe-area-inset-bottom));
+  background: #000;
 }
 
 .footer__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 1.15rem;
   text-align: center;
 }
 
-.footer__logo {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.05rem;
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
 }
 
-.footer__logo span {
+.footer__logo {
+  display: block;
+  border-radius: 4px;
+}
+
+.footer__logo:focus-visible,
+.footer__social a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.footer__logo-image {
+  width: clamp(170px, 50vw, 190px);
+  height: auto;
+  object-fit: contain;
+}
+
+.footer__location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #b8b8bd;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.footer__location-separator {
+  display: none;
+}
+
+.footer__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.35rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: color var(--transition), transform var(--transition);
+}
+
+.footer__social a:is(:hover, :focus-visible) {
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.footer__social-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
   color: var(--gold);
 }
 
-.footer__endereco {
-  color: var(--text-muted);
-  font-size: 0.85rem;
+.footer__social-icon--whatsapp {
+  fill: currentColor;
 }
 
-.footer__links {
-  display: flex;
-  gap: 1.25rem;
+.footer__social-icon--instagram {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
 }
 
-.footer__links a {
-  color: var(--text-muted);
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: color var(--transition);
+.footer__instagram-dot {
+  fill: currentColor;
+  stroke: none;
 }
 
-.footer__links a:hover {
-  color: var(--gold-light);
+.footer__separator {
+  color: var(--gold);
+  font-weight: 700;
 }
 
 .footer__copy {
-  color: var(--text-muted);
-  font-size: 0.8rem;
+  max-width: 380px;
+  color: #b8b8bd;
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding-block: 2rem;
+  }
+
+  .footer__inner {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: clamp(1.5rem, 3vw, 3rem);
+    text-align: left;
+  }
+
+  .footer__brand {
+    justify-self: start;
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+
+  .footer__location-separator {
+    display: inline;
+  }
+
+  .footer__social {
+    justify-self: center;
+    flex-wrap: nowrap;
+  }
+
+  .footer__copy {
+    justify-self: end;
+    text-align: right;
+  }
 }
 
 /* ==== BOTAO FLUTUANTE WHATSAPP ==== */
