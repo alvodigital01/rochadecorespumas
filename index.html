@@ -30,11 +30,11 @@
             <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
             <li><a href="#como-funciona" class="nav-link">Como funciona</a></li>
             <li><a href="#quem-somos" class="nav-link">Quem somos</a></li>
-            <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
             <li><a href="#onde-estamos" class="nav-link">Onde estamos</a></li>
             <li class="header__mobile-cta">
               <a
                 class="header__mobile-button"
+                data-button-effect
                 href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
                 target="_blank"
                 rel="noopener"
@@ -50,6 +50,7 @@
 
         <a
           class="header__cta"
+          data-button-effect
           href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
           target="_blank"
           rel="noopener"
@@ -93,6 +94,7 @@
         <div class="hero__actions">
           <a
             class="btn hero__button hero__button--catalogo"
+            data-button-effect
             href="#catalogo"
           >
             <span>Ver catálogo</span>
@@ -102,6 +104,7 @@
           </a>
           <a
             class="btn hero__button hero__button--whatsapp"
+            data-button-effect
             href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
             target="_blank"
             rel="noopener"
@@ -118,29 +121,48 @@
     <section class="catalogo section" id="catalogo">
       <div class="container">
         <div class="section-header" data-reveal>
-          <p class="section-eyebrow">Catálogo</p>
-          <h2 class="section-title">Espuma por densidade</h2>
+          <p class="section-eyebrow">Tabela de preços</p>
+          <h2 class="section-title" id="catalogo-title">Espumas e laminados</h2>
           <p class="section-subtitle">
-            Encontre a densidade ideal para o seu projeto. Valores de referência —
-            o preço final varia conforme espessura, corte e quantidade.
+            Consulte os valores por metro cúbico ou quilograma e solicite seu orçamento pelo WhatsApp.
           </p>
         </div>
 
-        <div class="catalogo__grid" id="catalogo-grid"></div>
+        <div
+          class="catalogo__table-wrapper"
+          role="region"
+          aria-labelledby="catalogo-title"
+          aria-describedby="catalogo-nota"
+          data-reveal
+        >
+          <table class="price-table">
+            <caption>Tabela de preços da Rocha Decor Espumas</caption>
+            <thead>
+              <tr>
+                <th scope="col">Produto</th>
+                <th scope="col">Especificação</th>
+                <th scope="col">Unidade</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Ação</th>
+              </tr>
+            </thead>
+            <tbody id="catalogo-table-body"></tbody>
+          </table>
+        </div>
 
-        <!-- Se editar as densidades em js/catalogo-data.js, atualize também esta lista de fallback abaixo. -->
+        <!-- Se editar os preços em js/catalogo-data.js, atualize também esta lista de fallback abaixo. -->
         <noscript>
+          <style>.catalogo__table-wrapper { display: none; }</style>
           <p class="catalogo__noscript-aviso">
-            Ative o JavaScript para ver os cartões do catálogo, ou fale
-            diretamente com a gente:
+            Ative o JavaScript para ver a tabela completa ou consulte os valores abaixo:
           </p>
           <ul class="catalogo__noscript-lista">
-            <li>D18 — Almofadas decorativas e assentos leves</li>
-            <li>D26 — Colchões e assentos de uso residencial</li>
-            <li>D28 — Estofados de sofás e poltronas</li>
-            <li>D33 — Uso comercial e alta rotatividade</li>
-            <li>D45 — Estofamento de alta resistência</li>
-            <li>D60 — Uso industrial e ortopédico</li>
+            <li>Espuma em bloco D26 — R$ 890,00 / m³</li>
+            <li>Espuma em bloco D28 — R$ 1.090,00 / m³</li>
+            <li>Espuma em bloco D33 — R$ 1.190,00 / m³</li>
+            <li>Mantas laminadas — R$ 35,00 / kg</li>
+            <li>Cascão laminado em rolo — R$ 15,00 / kg</li>
+            <li>Outras densidades — solicitar orçamento</li>
           </ul>
           <a
             class="btn btn--primary"
@@ -150,9 +172,8 @@
           </a>
         </noscript>
 
-        <p class="catalogo__nota" data-reveal>
-          * Preços variam conforme espessura, corte e quantidade. Fale com a
-          gente no WhatsApp para um orçamento exato.
+        <p class="catalogo__nota" id="catalogo-nota" data-reveal>
+          Não encontrou a densidade que procura? Solicite um orçamento personalizado.
         </p>
       </div>
     </section>
@@ -222,55 +243,6 @@
           >
             Fale com a gente
           </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="depoimentos section" id="depoimentos">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <p class="section-eyebrow">Depoimentos</p>
-          <h2 class="section-title">Quem compra, recomenda</h2>
-        </div>
-
-        <div class="carousel" id="testimonials-carousel" data-reveal>
-          <div class="carousel__track" id="testimonials-track">
-            <blockquote class="testimonial-card">
-              <img src="assets/img/avatar-placeholder.svg" alt="" width="64" height="64">
-              <p class="testimonial-card__estrelas" aria-hidden="true">★★★★★</p>
-              <p class="testimonial-card__texto">
-                "Depoimento de exemplo — substituir por um depoimento real de
-                cliente antes de publicar o site."
-              </p>
-              <footer class="testimonial-card__autor">Nome do Cliente — Tapeceiro</footer>
-            </blockquote>
-
-            <blockquote class="testimonial-card">
-              <img src="assets/img/avatar-placeholder.svg" alt="" width="64" height="64">
-              <p class="testimonial-card__estrelas" aria-hidden="true">★★★★★</p>
-              <p class="testimonial-card__texto">
-                "Depoimento de exemplo — substituir por um depoimento real de
-                cliente antes de publicar o site."
-              </p>
-              <footer class="testimonial-card__autor">Nome do Cliente — Estofador</footer>
-            </blockquote>
-
-            <blockquote class="testimonial-card">
-              <img src="assets/img/avatar-placeholder.svg" alt="" width="64" height="64">
-              <p class="testimonial-card__estrelas" aria-hidden="true">★★★★★</p>
-              <p class="testimonial-card__texto">
-                "Depoimento de exemplo — substituir por um depoimento real de
-                cliente antes de publicar o site."
-              </p>
-              <footer class="testimonial-card__autor">Nome do Cliente — Revendedor</footer>
-            </blockquote>
-          </div>
-
-          <div class="carousel__controls">
-            <button class="carousel__arrow" id="testimonials-prev" aria-label="Depoimento anterior">‹</button>
-            <div class="carousel__dots" id="testimonials-dots"></div>
-            <button class="carousel__arrow" id="testimonials-next" aria-label="Próximo depoimento">›</button>
-          </div>
         </div>
       </div>
     </section>
@@ -351,8 +323,8 @@
     rel="noopener"
     aria-label="Falar no WhatsApp"
   >
-    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
-      <path fill="#0b0b0d" d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-2c1.9 1 4 1.5 6.3 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3z"/>
+    <svg class="whatsapp-float__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.93 7.93 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.9 7.9 0 0 0-2.327-5.607m-5.607 12.2a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.25a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.588-6.592 6.588m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.066-.315-.099-.445.099-.133.197-.513.646-.627.775-.116.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.1-1.372-.116-.198-.013-.305.085-.404.09-.088.197-.23.296-.345.1-.116.133-.198.198-.33.066-.133.033-.25-.017-.35-.05-.098-.445-1.074-.611-1.47-.16-.389-.323-.335-.445-.34-.114-.006-.247-.006-.378-.006a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.132 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.151.906.129 1.249.078.38-.058 1.171-.48 1.338-.943.164-.462.164-.857.116-.943-.05-.082-.182-.132-.38-.23"/>
     </svg>
   </a>
 

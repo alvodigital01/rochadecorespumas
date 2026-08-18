@@ -10,9 +10,14 @@ export function buildWhatsAppLink(phone, message) {
   return `https://wa.me/${digitsOnly}${encoded ? `?text=${encoded}` : ''}`;
 }
 
+export function formatPrice(value, unit) {
+  const price = formatBRL(value);
+  return unit ? `${price} / ${unit}` : price;
+}
+
 export function formatPriceRange(min, max, unit) {
   if (min === max) {
-    return `${formatBRL(min)} / ${unit}`;
+    return formatPrice(min, unit);
   }
   return `${formatBRL(min)} – ${formatBRL(max)} / ${unit}`;
 }

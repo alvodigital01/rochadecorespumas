@@ -1,45 +1,68 @@
 import { CATALOGO } from './catalogo-data.js';
-import { buildWhatsAppLink, formatPriceRange } from './utils.js';
+import { buildWhatsAppLink, formatPrice } from './utils.js';
 
 const WHATSAPP_NUMBER = '5543984888884';
 
-function createCatalogCard(item) {
-  const card = document.createElement('article');
-  card.className = 'catalog-card';
-  card.setAttribute('data-reveal', '');
+function createCell(text, label, className = '') {
+  const cell = document.createElement('td');
+  cell.dataset.label = label;
+  cell.className = className;
+  cell.textContent = text;
+  return cell;
+}
 
-  const title = document.createElement('h3');
-  title.className = 'catalog-card__title';
-  title.textContent = item.densidade;
+function createProductCell(text) {
+  const cell = document.createElement('th');
+  cell.scope = 'row';
+  cell.dataset.label = 'Produto';
+  cell.className = 'price-table__product';
+  cell.textContent = text;
+  return cell;
+}
 
-  const uso = document.createElement('p');
-  uso.className = 'catalog-card__uso';
-  uso.textContent = item.uso;
+function createPriceRow(item) {
+  const row = document.createElement('tr');
+  row.className = 'price-table__row';
 
-  const preco = document.createElement('p');
-  preco.className = 'catalog-card__preco';
-  preco.textContent = formatPriceRange(item.precoMin, item.precoMax, item.unidade);
+  if (item.preco === null) {
+    row.classList.add('price-table__row--quote');
+  }
+
+  if (item.produto === 'Espuma em bloco') {
+    row.classList.add('price-table__row--foam');
+  }
+
+  const product = createProductCell(item.produto);
+  const specification = createCell(item.especificacao, 'Especificação', 'price-table__specification');
+  const unit = createCell(item.unidade ?? '—', 'Unidade', 'price-table__unit');
+  const price = createCell(
+    item.preco === null ? 'Sob consulta' : formatPrice(item.preco),
+    'Preço',
+    'price-table__price',
+  );
+
+  const action = document.createElement('td');
+  action.dataset.label = 'Ação';
+  action.className = 'price-table__action';
 
   const cta = document.createElement('a');
-  cta.className = 'btn btn--secondary btn--small catalog-card__cta';
+  cta.className = 'btn btn--secondary btn--small price-table__cta';
   cta.href = buildWhatsAppLink(WHATSAPP_NUMBER, item.mensagemWhatsApp);
   cta.target = '_blank';
   cta.rel = 'noopener';
-  cta.textContent = 'Consultar no WhatsApp';
+  cta.textContent = item.preco === null ? 'Solicitar orçamento' : 'Consultar';
+  cta.setAttribute('aria-label', `${cta.textContent}: ${item.produto} ${item.especificacao}`);
 
-  card.append(title, uso, preco, cta);
-
-  return card;
+  action.appendChild(cta);
+  row.append(product, specification, unit, price, action);
+  return row;
 }
 
-export function renderCatalogo(selector = '#catalogo-grid') {
-  const grid = document.querySelector(selector);
-  if (!grid) return;
+export function renderCatalogo(selector = '#catalogo-table-body') {
+  const tableBody = document.querySelector(selector);
+  if (!tableBody) return;
 
   const fragment = document.createDocumentFragment();
-  CATALOGO.forEach((item) => {
-    fragment.appendChild(createCatalogCard(item));
-  });
-
-  grid.appendChild(fragment);
+  CATALOGO.forEach((item) => fragment.appendChild(createPriceRow(item)));
+  tableBody.replaceChildren(fragment);
 }

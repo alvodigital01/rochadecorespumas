@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildWhatsAppLink, formatPriceRange } from '../js/utils.js';
+import { buildWhatsAppLink, formatPrice, formatPriceRange } from '../js/utils.js';
 
 test('buildWhatsAppLink strips non-digit characters from the phone number', () => {
   const link = buildWhatsAppLink('55 43 98488-8884', 'Olá');
@@ -33,4 +33,8 @@ test('formatPriceRange collapses to a single price when min equals max', () => {
 test('formatPriceRange groups thousands with a dot', () => {
   const result = formatPriceRange(1234, 1234, 'm²');
   assert.equal(result, 'R$ 1.234,00 / m²');
+});
+
+test('formatPrice formats a single table value in Brazilian reais', () => {
+  assert.equal(formatPrice(1090), 'R$ 1.090,00');
 });
