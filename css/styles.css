@@ -469,6 +469,10 @@ button { font: inherit; cursor: pointer; }
 }
 
 @media (max-width: 767px) {
+  .hero__actions {
+    top: 45%;
+  }
+
   .hero__button {
     min-height: 50px;
   }
