@@ -20,9 +20,9 @@ button { font: inherit; cursor: pointer; }
 
 /* ==== DESIGN TOKENS ==== */
 :root {
-  --bg: #0b0b0d;
-  --bg-elevated: #16161a;
-  --bg-elevated-2: #1e1e23;
+  --bg: #000000;
+  --bg-elevated: #000000;
+  --bg-elevated-2: #000000;
   --gold: #FECE05;
   --gold-light: #FECE05;
   --gold-dark: #FECE05;
@@ -41,9 +41,9 @@ button { font: inherit; cursor: pointer; }
 
 @media (min-width: 1024px) {
   :root {
-    --header-main-height: 66px;
-    --announcement-height: 30px;
-    --header-total-height: 96px;
+    --header-main-height: 62px;
+    --announcement-height: 26px;
+    --header-total-height: 88px;
   }
 }
 
@@ -107,7 +107,7 @@ button { font: inherit; cursor: pointer; }
 
 .btn--primary {
   background: linear-gradient(135deg, var(--gold-light), var(--gold));
-  color: #1a1305;
+  color: #000000;
 }
 
 .btn--primary:hover {
@@ -168,7 +168,7 @@ button { font: inherit; cursor: pointer; }
 
 .header__main {
   height: var(--header-main-height);
-  background: #0b0b0d;
+  background: #000000;
 }
 
 .header__inner {
@@ -224,7 +224,7 @@ button { font: inherit; cursor: pointer; }
   border: 1px solid var(--gold);
   border-radius: 9px;
   background: var(--gold);
-  color: #0b0b0d;
+  color: #000000;
   font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 800;
@@ -299,11 +299,11 @@ button { font: inherit; cursor: pointer; }
   place-items: center;
   padding-inline: 0.75rem;
   background: #FECE05;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #000000;
 }
 
 .announcement-bar__message {
-  color: #000;
+  color: #000000;
   font-family: 'Roboto Condensed', 'Arial Narrow', 'Helvetica Neue Condensed', Arial, sans-serif;
   font-size: clamp(0.625rem, 1vw, 0.95rem);
   font-weight: 800;
@@ -326,7 +326,7 @@ button { font: inherit; cursor: pointer; }
     right: 0;
     justify-self: auto;
     padding: 1.25rem clamp(1rem, 4vw, 2rem) 1.5rem;
-    background: rgba(11, 11, 13, 0.98);
+    background: rgba(0, 0, 0, 0.98);
     border-bottom: 1px solid var(--gold);
     box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
     opacity: 0;
@@ -419,6 +419,51 @@ button { font: inherit; cursor: pointer; }
   transform: translateX(-50%);
 }
 
+.hero__scroll-cue {
+  position: absolute;
+  z-index: 2;
+  bottom: clamp(1rem, 2.2vw, 2rem);
+  left: 50%;
+  width: clamp(52px, 4vw, 62px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.16);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: hero-scroll-bounce 1.8s ease-in-out infinite;
+}
+
+.hero__scroll-cue:is(:hover, :focus-visible) {
+  border-color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.hero__scroll-cue-icon {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@keyframes hero-scroll-bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 9px);
+  }
+}
+
 .action-button {
   min-height: clamp(44px, 3.3vw, 54px);
   padding: clamp(0.7rem, 1vw, 0.9rem) clamp(0.75rem, 1.5vw, 1.4rem);
@@ -437,7 +482,7 @@ button { font: inherit; cursor: pointer; }
 .action-button--solid {
   background: var(--gold);
   border-color: var(--gold);
-  color: #0b0b0d;
+  color: #000000;
   box-shadow: 0 8px 24px -10px rgba(254, 206, 5, 0.7);
 }
 
@@ -454,7 +499,7 @@ button { font: inherit; cursor: pointer; }
 .action-button--outline:is(:hover, :focus-visible) {
   background: var(--gold);
   border-color: var(--gold);
-  color: #0b0b0d;
+  color: #000000;
   box-shadow: 0 12px 28px -10px rgba(254, 206, 5, 0.9);
 }
 
@@ -477,6 +522,10 @@ button { font: inherit; cursor: pointer; }
   .hero__button {
     min-height: 50px;
   }
+
+  .hero__scroll-cue {
+    bottom: 1rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -494,6 +543,13 @@ button { font: inherit; cursor: pointer; }
   .hero__button {
     padding-inline: 0.6rem;
     font-size: 0.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-cue {
+    animation: none;
+    transform: translateX(-50%);
   }
 }
 
@@ -654,7 +710,7 @@ button { font: inherit; cursor: pointer; }
   max-width: 1080px;
   margin-inline: auto;
   overflow-x: auto;
-  background: linear-gradient(145deg, #19191e, #121216);
+  background: #000000;
   border: 1px solid rgba(254, 206, 5, 0.34);
   border-radius: var(--radius);
   box-shadow:
@@ -767,7 +823,7 @@ button { font: inherit; cursor: pointer; }
 
 .price-table__cta:hover {
   background: var(--gold);
-  color: #0b0b0d;
+  color: #000000;
 }
 
 .catalogo__noscript-aviso,
@@ -834,7 +890,7 @@ button { font: inherit; cursor: pointer; }
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.15rem 1rem;
     padding: 0.9rem;
-    background: linear-gradient(145deg, #1a1a1f, #121216);
+    background: #000000;
     border: 1px solid rgba(254, 206, 5, 0.26);
     border-radius: var(--radius);
     box-shadow: 0 16px 34px -26px rgba(254, 206, 5, 0.42);
@@ -852,7 +908,7 @@ button { font: inherit; cursor: pointer; }
 
   .price-table__row:nth-child(even),
   .price-table__row--quote {
-    background: linear-gradient(145deg, rgba(254, 206, 5, 0.08), #121216 62%);
+    background: linear-gradient(145deg, rgba(254, 206, 5, 0.08), #000000 62%);
   }
 
   .price-table td,
@@ -970,7 +1026,7 @@ button { font: inherit; cursor: pointer; }
 .footer {
   border-top: 1px solid rgba(254, 206, 5, 0.22);
   padding-block: 2rem calc(5.25rem + env(safe-area-inset-bottom));
-  background: #000;
+  background: #000000;
 }
 
 .footer__inner {
@@ -1119,7 +1175,7 @@ button { font: inherit; cursor: pointer; }
   height: 56px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--gold-light), var(--gold));
-  color: #0b0b0d;
+  color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
