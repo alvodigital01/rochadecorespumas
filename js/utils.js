@@ -16,8 +16,3 @@ export function formatPriceRange(min, max, unit) {
   }
   return `${formatBRL(min)} – ${formatBRL(max)} / ${unit}`;
 }
-
-export function easeOutQuad(progress) {
-  const clamped = Math.min(Math.max(progress, 0), 1);
-  return 1 - (1 - clamped) * (1 - clamped);
-}

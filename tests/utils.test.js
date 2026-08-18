@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildWhatsAppLink, formatPriceRange, easeOutQuad } from '../js/utils.js';
+import { buildWhatsAppLink, formatPriceRange } from '../js/utils.js';
 
 test('buildWhatsAppLink strips non-digit characters from the phone number', () => {
   const link = buildWhatsAppLink('55 43 98488-8884', 'Olá');
@@ -33,19 +33,4 @@ test('formatPriceRange collapses to a single price when min equals max', () => {
 test('formatPriceRange groups thousands with a dot', () => {
   const result = formatPriceRange(1234, 1234, 'm²');
   assert.equal(result, 'R$ 1.234,00 / m²');
-});
-
-test('easeOutQuad returns 0 at progress 0 and 1 at progress 1', () => {
-  assert.equal(easeOutQuad(0), 0);
-  assert.equal(easeOutQuad(1), 1);
-});
-
-test('easeOutQuad clamps values outside the 0-1 range', () => {
-  assert.equal(easeOutQuad(-0.5), 0);
-  assert.equal(easeOutQuad(1.5), 1);
-});
-
-test('easeOutQuad is strictly between 0 and 1 at the midpoint', () => {
-  const mid = easeOutQuad(0.5);
-  assert.ok(mid > 0 && mid < 1);
 });

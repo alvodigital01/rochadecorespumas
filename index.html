@@ -48,59 +48,25 @@
 
   <main>
     <section class="hero" id="hero" data-reveal>
-      <div class="container hero__inner">
-        <div class="hero__badge">
-          <span class="hero__badge-number" data-counter data-counter-target="30" data-counter-suffix="+">0</span>
-          <span class="hero__badge-label">anos de experiência em Londrina</span>
-        </div>
+      <picture class="hero__banner">
+        <source media="(max-width: 767px)" srcset="assets/img/hero-banner-mobile.png">
+        <img
+          src="assets/img/hero-banner-pc.png"
+          alt="Espuma de qualidade pelo preço certo — espumas Pró-Relax, cortes sob medida e condições especiais para profissionais."
+          fetchpriority="high"
+        >
+      </picture>
 
-        <h1 class="hero__title">Uma densidade certa<br>para cada projeto.</h1>
-        <p class="hero__subtitle">
-          Distribuidora oficial Pró-Relax. Preços especiais para tapeceiros,
-          estofadores e revendedores, com cortes sob medida.
-        </p>
-
-        <div class="hero__actions">
-          <a
-            class="btn btn--primary"
-            href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
-            target="_blank"
-            rel="noopener"
-          >
-            Falar no WhatsApp
-          </a>
-          <a class="btn btn--secondary" href="#catalogo">Ver catálogo de densidades</a>
-        </div>
-
-        <a href="#catalogo" class="hero__spectrum">
-          <div class="hero__spectrum-bar">
-            <span class="hero__spectrum-tick hero__spectrum-tick--start" style="left:0%">
-              <span class="hero__spectrum-tick-mark"></span>
-              <span class="hero__spectrum-tick-label"><b>D18</b><i>macia</i></span>
-            </span>
-            <span class="hero__spectrum-tick" style="left:20%">
-              <span class="hero__spectrum-tick-mark"></span>
-              <span class="hero__spectrum-tick-label"><b>D26</b></span>
-            </span>
-            <span class="hero__spectrum-tick" style="left:40%">
-              <span class="hero__spectrum-tick-mark"></span>
-              <span class="hero__spectrum-tick-label"><b>D28</b></span>
-            </span>
-            <span class="hero__spectrum-tick" style="left:60%">
-              <span class="hero__spectrum-tick-mark"></span>
-              <span class="hero__spectrum-tick-label"><b>D33</b></span>
-            </span>
-            <span class="hero__spectrum-tick" style="left:80%">
-              <span class="hero__spectrum-tick-mark"></span>
-              <span class="hero__spectrum-tick-label"><b>D45</b></span>
-            </span>
-            <span class="hero__spectrum-tick hero__spectrum-tick--end" style="left:100%">
-              <span class="hero__spectrum-tick-mark"></span>
-              <span class="hero__spectrum-tick-label"><b>D60</b><i>firme</i></span>
-            </span>
-          </div>
-          <p class="hero__spectrum-caption">Do mais macio ao mais firme — encontre sua densidade no catálogo abaixo ↓</p>
+      <div class="container hero__actions">
+        <a
+          class="btn btn--primary"
+          href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
+          target="_blank"
+          rel="noopener"
+        >
+          Falar no WhatsApp
         </a>
+        <a class="btn btn--secondary" href="#catalogo">Ver catálogo de densidades</a>
       </div>
     </section>
 
