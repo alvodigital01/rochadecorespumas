@@ -468,6 +468,12 @@ button { font: inherit; cursor: pointer; }
   stroke-linejoin: round;
 }
 
+@media (max-width: 767px) {
+  .hero__button {
+    min-height: 50px;
+  }
+}
+
 @media (min-width: 768px) {
   .hero__actions {
     top: 51%;
@@ -897,76 +903,6 @@ button { font: inherit; cursor: pointer; }
     width: 100%;
     min-height: 44px;
   }
-}
-
-/* ==== COMO FUNCIONA ==== */
-.passos {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .passos {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.passo {
-  text-align: center;
-}
-
-.passo__numero {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid var(--gold);
-  color: var(--gold-light);
-  font-weight: 800;
-  margin-bottom: 1rem;
-}
-
-.passo h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-}
-
-.passo p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-/* ==== QUEM SOMOS ==== */
-.quem-somos__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .quem-somos__grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.quem-somos__media img {
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-}
-
-.quem-somos__texto p {
-  color: var(--text-muted);
-  margin-top: 1rem;
-  line-height: 1.7;
-}
-
-.quem-somos__texto .btn {
-  margin-top: 1.5rem;
 }
 
 /* ==== ONDE ESTAMOS ==== */
