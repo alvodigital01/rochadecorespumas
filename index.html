@@ -13,7 +13,69 @@
 </head>
 <body>
   <header class="header" id="header">
-    <p class="header__message">Espumas de qualidade e conforto sob medida</p>
+    <div class="header__main">
+      <div class="container header__inner">
+        <a href="#hero" class="header__logo">
+          <img
+            class="header__logo-image"
+            src="assets/img/logoheader.png"
+            alt="Rocha Decor Espumas"
+            width="1460"
+            height="468"
+          >
+        </a>
+
+        <nav class="header__nav" id="header-nav" aria-label="Navegação principal">
+          <ul>
+            <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
+            <li><a href="#como-funciona" class="nav-link">Como funciona</a></li>
+            <li><a href="#quem-somos" class="nav-link">Quem somos</a></li>
+            <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+            <li><a href="#onde-estamos" class="nav-link">Onde estamos</a></li>
+            <li class="header__mobile-cta">
+              <a
+                class="header__mobile-button"
+                href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
+                target="_blank"
+                rel="noopener"
+              >
+                <span>Entrar em contato</span>
+                <svg class="header__cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M7 17 17 7M8 7h9v9" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <a
+          class="header__cta"
+          href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
+          target="_blank"
+          rel="noopener"
+        >
+          <span>Entrar em contato</span>
+          <svg class="header__cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7 17 17 7M8 7h9v9" />
+          </svg>
+        </a>
+
+        <button
+          class="header__toggle"
+          id="header-toggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="header-nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="announcement-bar">
+      <p class="announcement-bar__message">Espumas de qualidade e conforto sob medida</p>
+    </div>
   </header>
 
   <main>
