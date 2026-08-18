@@ -279,44 +279,6 @@ button { font: inherit; cursor: pointer; }
   }
 }
 
-/* ==== DIFERENCIAIS ==== */
-.diferenciais__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-
-.diferencial-card {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.75rem;
-  transition: transform var(--transition), border-color var(--transition);
-}
-
-.diferencial-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--gold);
-}
-
-.diferencial-card__icon {
-  font-size: 1.75rem;
-  display: inline-block;
-  margin-bottom: 0.75rem;
-}
-
-.diferencial-card h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.diferencial-card p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
 /* ==== CATALOGO ==== */
 .catalogo__grid {
   display: grid;
