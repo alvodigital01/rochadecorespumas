@@ -6,104 +6,49 @@
   <title>Rocha Decor Espumas | Distribuidora de Espumas em Londrina</title>
   <meta name="description" content="Distribuidora de espumas Pró-Relax em Londrina - PR. Preços especiais para tapeceiros, estofadores e revendedores. Cortes sob medida. Fale no WhatsApp.">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&amp;family=Roboto+Condensed:wght@800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="header" id="header">
-    <div class="container header__inner">
-      <a href="#hero" class="header__logo">Rocha <span>Decor Espumas</span></a>
-
-      <nav class="header__nav" id="header-nav">
-        <ul>
-          <li><a href="#hero" class="nav-link">Início</a></li>
-          <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
-          <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
-          <li><a href="#como-funciona" class="nav-link">Como Funciona</a></li>
-          <li><a href="#quem-somos" class="nav-link">Quem Somos</a></li>
-          <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
-          <li><a href="#onde-estamos" class="nav-link">Onde Estamos</a></li>
-        </ul>
-      </nav>
-
-      <a
-        class="btn btn--primary btn--small header__cta"
-        href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
-        target="_blank"
-        rel="noopener"
-      >
-        Falar no WhatsApp
-      </a>
-
-      <button
-        class="header__toggle"
-        id="header-toggle"
-        aria-label="Abrir menu"
-        aria-expanded="false"
-        aria-controls="header-nav"
-      >
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <p class="header__message">Espumas de qualidade e conforto sob medida</p>
   </header>
 
   <main>
     <section class="hero" id="hero" data-reveal>
-      <picture class="hero__banner">
-        <source media="(max-width: 767px)" srcset="assets/img/hero-banner-mobile.png">
-        <img
-          src="assets/img/hero-banner-pc.png"
-          alt="Espuma de qualidade pelo preço certo — espumas Pró-Relax, cortes sob medida e condições especiais para profissionais."
-          fetchpriority="high"
-        >
-      </picture>
+      <div class="hero__media">
+        <picture class="hero__banner">
+          <source media="(max-width: 767px)" srcset="assets/img/hero-banner-mobile.png">
+          <img
+            src="assets/img/hero-banner-pc.png"
+            alt="Espuma de qualidade pelo preço certo — espumas Pró-Relax, cortes sob medida e condições especiais para profissionais."
+            fetchpriority="high"
+          >
+        </picture>
 
-      <div class="container hero__actions">
-        <a
-          class="btn btn--primary"
-          href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
-          target="_blank"
-          rel="noopener"
-        >
-          Falar no WhatsApp
-        </a>
-        <a class="btn btn--secondary" href="#catalogo">Ver catálogo de densidades</a>
-      </div>
-    </section>
-
-    <section class="diferenciais section" id="diferenciais">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <p class="section-eyebrow">Por que a Rocha</p>
-          <h2 class="section-title">Feito para quem faz acontecer</h2>
-          <p class="section-subtitle">
-            Mais de três décadas fornecendo espuma de qualidade para quem transforma isso em negócio.
-          </p>
-        </div>
-
-        <div class="diferenciais__grid">
-          <article class="diferencial-card" data-reveal>
-            <span class="diferencial-card__icon" aria-hidden="true">⏳</span>
-            <h3>+30 anos de mercado</h3>
-            <p>Décadas de experiência distribuindo espuma de qualidade em Londrina e região.</p>
-          </article>
-
-          <article class="diferencial-card" data-reveal>
-            <span class="diferencial-card__icon" aria-hidden="true">✂️</span>
-            <h3>Cortes sob medida</h3>
-            <p>Cortamos a espuma no tamanho exato que você precisa, sem desperdício.</p>
-          </article>
-
-          <article class="diferencial-card" data-reveal>
-            <span class="diferencial-card__icon" aria-hidden="true">🤝</span>
-            <h3>Preços para revendedores</h3>
-            <p>Condições exclusivas para tapeceiros, estofadores e revendedores.</p>
-          </article>
-
-          <article class="diferencial-card" data-reveal>
-            <span class="diferencial-card__icon" aria-hidden="true">🏆</span>
-            <h3>Distribuidor oficial Pró-Relax</h3>
-            <p>Conforto, durabilidade e qualidade com a garantia de uma marca reconhecida.</p>
-          </article>
+        <div class="hero__actions">
+          <a
+            class="btn hero__button hero__button--catalogo"
+            href="#catalogo"
+          >
+            <span>Ver catálogo</span>
+            <svg class="hero__button-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 5v14m0 0 6-6m-6 6-6-6" />
+            </svg>
+          </a>
+          <a
+            class="btn hero__button hero__button--whatsapp"
+            href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Falar no WhatsApp</span>
+            <svg class="hero__button-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7 17 17 7M8 7h9v9" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
