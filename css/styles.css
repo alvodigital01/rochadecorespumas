@@ -23,12 +23,12 @@ button { font: inherit; cursor: pointer; }
   --bg: #0b0b0d;
   --bg-elevated: #16161a;
   --bg-elevated-2: #1e1e23;
-  --gold: #fffc00;
-  --gold-light: #fffc00;
-  --gold-dark: #fffc00;
+  --gold: #FECE05;
+  --gold-light: #FECE05;
+  --gold-dark: #FECE05;
   --text: #f4f1ea;
   --text-muted: #a8a29b;
-  --border: rgba(255, 252, 0, 0.25);
+  --border: rgba(254, 206, 5, 0.25);
   --header-main-height: 60px;
   --announcement-height: 28px;
   --header-total-height: 88px;
@@ -111,7 +111,7 @@ button { font: inherit; cursor: pointer; }
 
 .btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px -10px rgba(255, 252, 0, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(254, 206, 5, 0.6);
 }
 
 .btn--secondary {
@@ -250,7 +250,7 @@ button { font: inherit; cursor: pointer; }
 .header__cta:hover,
 .header__mobile-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 9px 24px -10px rgba(255, 252, 0, 0.85);
+  box-shadow: 0 9px 24px -10px rgba(254, 206, 5, 0.85);
 }
 
 .header__mobile-cta,
@@ -297,7 +297,7 @@ button { font: inherit; cursor: pointer; }
   display: grid;
   place-items: center;
   padding-inline: 0.75rem;
-  background: #fffc00;
+  background: #FECE05;
   border-bottom: 1px solid #000;
 }
 
@@ -437,11 +437,11 @@ button { font: inherit; cursor: pointer; }
   background: var(--gold);
   border-color: var(--gold);
   color: #0b0b0d;
-  box-shadow: 0 8px 24px -10px rgba(255, 252, 0, 0.7);
+  box-shadow: 0 8px 24px -10px rgba(254, 206, 5, 0.7);
 }
 
 .hero__button--catalogo:hover {
-  box-shadow: 0 12px 28px -10px rgba(255, 252, 0, 0.9);
+  box-shadow: 0 12px 28px -10px rgba(254, 206, 5, 0.9);
 }
 
 .hero__button--whatsapp {
@@ -454,7 +454,7 @@ button { font: inherit; cursor: pointer; }
   background: var(--gold);
   border-color: var(--gold);
   color: #0b0b0d;
-  box-shadow: 0 12px 28px -10px rgba(255, 252, 0, 0.9);
+  box-shadow: 0 12px 28px -10px rgba(254, 206, 5, 0.9);
 }
 
 .hero__button-icon {
@@ -644,10 +644,10 @@ button { font: inherit; cursor: pointer; }
   margin-inline: auto;
   overflow-x: auto;
   background: linear-gradient(145deg, #19191e, #121216);
-  border: 1px solid rgba(255, 252, 0, 0.34);
+  border: 1px solid rgba(254, 206, 5, 0.34);
   border-radius: var(--radius);
   box-shadow:
-    0 28px 70px -42px rgba(255, 252, 0, 0.38),
+    0 28px 70px -42px rgba(254, 206, 5, 0.38),
     0 20px 45px -30px rgba(0, 0, 0, 0.9);
   scrollbar-color: var(--gold) var(--bg-elevated-2);
   scrollbar-width: thin;
@@ -673,13 +673,13 @@ button { font: inherit; cursor: pointer; }
 }
 
 .price-table thead {
-  background: linear-gradient(90deg, rgba(255, 252, 0, 0.13), rgba(255, 252, 0, 0.035));
+  background: linear-gradient(90deg, rgba(254, 206, 5, 0.13), rgba(254, 206, 5, 0.035));
   color: var(--gold);
 }
 
 .price-table thead th {
   padding: 1.05rem 1.15rem;
-  border-bottom: 1px solid rgba(255, 252, 0, 0.34);
+  border-bottom: 1px solid rgba(254, 206, 5, 0.34);
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -690,7 +690,7 @@ button { font: inherit; cursor: pointer; }
 .price-table td,
 .price-table tbody th {
   padding: 1.05rem 1.15rem;
-  border-top: 1px solid rgba(255, 252, 0, 0.14);
+  border-top: 1px solid rgba(254, 206, 5, 0.14);
   text-align: left;
   vertical-align: middle;
 }
@@ -704,12 +704,12 @@ button { font: inherit; cursor: pointer; }
 }
 
 .price-table__row--quote {
-  background: rgba(255, 252, 0, 0.065);
+  background: rgba(254, 206, 5, 0.065);
 }
 
 @media (hover: hover) and (min-width: 768px) {
   .price-table__row:hover {
-    background: rgba(255, 252, 0, 0.065);
+    background: rgba(254, 206, 5, 0.065);
   }
 }
 
@@ -823,9 +823,9 @@ button { font: inherit; cursor: pointer; }
     gap: 0.15rem 1rem;
     padding: 0.9rem;
     background: linear-gradient(145deg, #1a1a1f, #121216);
-    border: 1px solid rgba(255, 252, 0, 0.26);
+    border: 1px solid rgba(254, 206, 5, 0.26);
     border-radius: var(--radius);
-    box-shadow: 0 16px 34px -26px rgba(255, 252, 0, 0.42);
+    box-shadow: 0 16px 34px -26px rgba(254, 206, 5, 0.42);
     overflow: hidden;
   }
 
@@ -840,7 +840,7 @@ button { font: inherit; cursor: pointer; }
 
   .price-table__row:nth-child(even),
   .price-table__row--quote {
-    background: linear-gradient(145deg, rgba(255, 252, 0, 0.08), #121216 62%);
+    background: linear-gradient(145deg, rgba(254, 206, 5, 0.08), #121216 62%);
   }
 
   .price-table td,
@@ -866,7 +866,7 @@ button { font: inherit; cursor: pointer; }
   .price-table__product {
     grid-column: 1 / -1;
     padding-bottom: 0.7rem !important;
-    border-bottom: 1px solid rgba(255, 252, 0, 0.15) !important;
+    border-bottom: 1px solid rgba(254, 206, 5, 0.15) !important;
     font-size: 1rem;
   }
 
