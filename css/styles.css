@@ -35,8 +35,8 @@ button { font: inherit; cursor: pointer; }
   --radius: 14px;
   --container-width: 1180px;
   --transition: 280ms ease;
-  --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', ui-serif, serif;
-  --font-body: -apple-system, 'Segoe UI', system-ui, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Roboto Slab', Rockwell, Georgia, serif;
+  --font-body: 'Poppins', 'Segoe UI', Arial, sans-serif;
 }
 
 @media (min-width: 1024px) {
@@ -79,8 +79,9 @@ button { font: inherit; cursor: pointer; }
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
 }
 
 .section-subtitle {
@@ -224,7 +225,7 @@ button { font: inherit; cursor: pointer; }
   border-radius: 9px;
   background: var(--gold);
   color: #0b0b0d;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 800;
   line-height: 1;
@@ -422,7 +423,7 @@ button { font: inherit; cursor: pointer; }
   min-height: clamp(44px, 3.3vw, 54px);
   padding: clamp(0.7rem, 1vw, 0.9rem) clamp(0.75rem, 1.5vw, 1.4rem);
   border-radius: 10px;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(0.75rem, 1.1vw, 1rem);
   font-weight: 800;
   line-height: 1;
@@ -470,7 +471,7 @@ button { font: inherit; cursor: pointer; }
 
 @media (max-width: 767px) {
   .hero__actions {
-    top: 45%;
+    top: 40%;
   }
 
   .hero__button {
@@ -725,7 +726,7 @@ button { font: inherit; cursor: pointer; }
 
 .price-table__product {
   color: var(--text);
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 800;
   overflow-wrap: anywhere;
 }
@@ -748,6 +749,7 @@ button { font: inherit; cursor: pointer; }
 
 .price-table__price {
   color: var(--gold);
+  font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 800;
   white-space: nowrap;
@@ -966,7 +968,7 @@ button { font: inherit; cursor: pointer; }
 
 .footer__logo {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.05rem;
 }
 
