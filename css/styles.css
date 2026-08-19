@@ -991,9 +991,36 @@ button { font: inherit; cursor: pointer; }
   align-items: center;
 }
 
+@media (max-width: 767px) {
+  .onde-estamos__info {
+    text-align: center;
+  }
+
+  .onde-estamos__actions {
+    justify-content: center;
+  }
+}
+
 @media (min-width: 768px) {
   .onde-estamos__grid {
     grid-template-columns: 1fr 1fr;
+    row-gap: 1.75rem;
+  }
+
+  .onde-estamos__info {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .onde-estamos__mapa {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .onde-estamos__actions {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
   }
 }
 
@@ -1010,7 +1037,6 @@ button { font: inherit; cursor: pointer; }
 }
 
 .onde-estamos__actions {
-  margin-top: 1.75rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
