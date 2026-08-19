@@ -231,6 +231,108 @@
         </div>
       </div>
     </section>
+
+    <section class="orcamento section" id="orcamento" aria-labelledby="orcamento-title">
+      <div class="container">
+        <div class="orcamento__panel" data-reveal>
+          <header class="section-header orcamento__header">
+            <p class="section-eyebrow">Orçamento personalizado</p>
+            <h2 class="section-title orcamento__title" id="orcamento-title">
+              Encontre a espuma ideal
+              <span class="orcamento__title-line">para o seu projeto.</span>
+            </h2>
+            <p class="orcamento__badge">
+              <span class="orcamento__badge-dot" aria-hidden="true"></span>
+              <span>Cortes sob medida para o seu projeto.</span>
+            </p>
+          </header>
+
+          <form class="orcamento-form" id="orcamento-form">
+            <div class="orcamento-form__fields">
+              <div class="orcamento-form__field">
+                <label for="orcamento-nome">Seu nome</label>
+                <input
+                  class="orcamento-form__control"
+                  id="orcamento-nome"
+                  name="nome"
+                  type="text"
+                  placeholder="Digite seu nome"
+                  autocomplete="name"
+                  maxlength="80"
+                  required
+                >
+              </div>
+
+              <div class="orcamento-form__field">
+                <label for="orcamento-cidade">Sua cidade</label>
+                <input
+                  class="orcamento-form__control"
+                  id="orcamento-cidade"
+                  name="cidade"
+                  type="text"
+                  placeholder="Ex.: Londrina - PR"
+                  autocomplete="address-level2"
+                  maxlength="80"
+                  required
+                >
+              </div>
+
+              <div class="orcamento-form__field">
+                <label for="orcamento-produto">Produto de interesse</label>
+                <div class="orcamento-form__select-wrap">
+                  <select
+                    class="orcamento-form__control"
+                    id="orcamento-produto"
+                    name="produto"
+                    required
+                  >
+                    <option value="" selected disabled>Selecione uma opção</option>
+                    <option value="Espuma em bloco D26">Espuma em bloco D26</option>
+                    <option value="Espuma em bloco D28">Espuma em bloco D28</option>
+                    <option value="Espuma em bloco D33">Espuma em bloco D33</option>
+                    <option value="Mantas laminadas">Mantas laminadas</option>
+                    <option value="Cascão laminado em rolo">Cascão laminado em rolo</option>
+                    <option value="Outras densidades">Outras densidades</option>
+                    <option value="Ainda não sei qual espuma escolher">Ainda não sei qual espuma escolher</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="orcamento-form__field">
+                <label for="orcamento-detalhes">Medidas ou quantidade <span>(opcional)</span></label>
+                <input
+                  class="orcamento-form__control"
+                  id="orcamento-detalhes"
+                  name="detalhes"
+                  type="text"
+                  placeholder="Ex.: 2 × 1 × 0,10 m ou 10 kg"
+                  maxlength="160"
+                >
+              </div>
+            </div>
+
+            <div class="orcamento-form__footer">
+              <button
+                class="btn action-button action-button--solid action-button--arrow-up orcamento-form__submit"
+                type="submit"
+                data-button-effect
+                aria-label="Enviar informações para o WhatsApp — abre em nova aba"
+              >
+                <span>Enviar para o WhatsApp</span>
+                <svg class="action-button__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M7 17 17 7M8 7h9v9" />
+                </svg>
+              </button>
+
+              <p class="orcamento-form__hint">
+                <strong>Sua solicitação já vai pronta.</strong>
+                O WhatsApp abrirá com as informações preenchidas.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer" id="footer">
@@ -253,7 +355,7 @@
 
       <nav class="footer__social" aria-label="Redes sociais">
         <a
-          href="https://wa.me/5543984888884"
+          href="https://wa.me/5543984888884?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20espumas."
           target="_blank"
           rel="noopener"
           aria-label="Falar com a Rocha Decor Espumas no WhatsApp — abre em nova aba"
