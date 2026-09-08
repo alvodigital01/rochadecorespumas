@@ -1075,14 +1075,10 @@ button { font: inherit; cursor: pointer; }
   margin-inline: auto;
   padding: clamp(1.5rem, 3.5vw, 2.75rem);
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(254, 206, 5, 0.12), transparent 38%),
-    linear-gradient(145deg, #19191e, #111115);
+  background: #000000;
   border: 1px solid rgba(254, 206, 5, 0.34);
   border-radius: var(--radius);
-  box-shadow:
-    0 30px 75px -44px rgba(254, 206, 5, 0.46),
-    0 22px 50px -32px rgba(0, 0, 0, 0.95);
+  box-shadow: none;
 }
 
 .orcamento__panel::before {
