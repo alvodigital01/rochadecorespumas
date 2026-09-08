@@ -729,9 +729,7 @@ button { font: inherit; cursor: pointer; }
   background: #000000;
   border: 1px solid rgba(254, 206, 5, 0.34);
   border-radius: var(--radius);
-  box-shadow:
-    0 28px 70px -42px rgba(254, 206, 5, 0.38),
-    0 20px 45px -30px rgba(0, 0, 0, 0.9);
+  box-shadow: none;
   scrollbar-color: var(--gold) var(--bg-elevated-2);
   scrollbar-width: thin;
 }
